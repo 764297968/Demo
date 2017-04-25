@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityAuth", "IdentityAuth\IdentityAuth.csproj", "{52D85209-404E-4A23-92CB-F2BC4ACA3440}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Code", "Code\Code.csproj", "{9C67C5D8-8371-4DDF-909A-E3A84025F641}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{52D85209-404E-4A23-92CB-F2BC4ACA3440}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52D85209-404E-4A23-92CB-F2BC4ACA3440}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52D85209-404E-4A23-92CB-F2BC4ACA3440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C67C5D8-8371-4DDF-909A-E3A84025F641}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C67C5D8-8371-4DDF-909A-E3A84025F641}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C67C5D8-8371-4DDF-909A-E3A84025F641}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C67C5D8-8371-4DDF-909A-E3A84025F641}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
