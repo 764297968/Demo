@@ -13,5 +13,9 @@ namespace IdentityAuth.Controllers
         {
             return View();
         }
+        public ActionResult Auth()
+        {
+            return View();
+        }
     }
 }

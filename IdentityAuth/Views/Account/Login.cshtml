@@ -33,6 +33,9 @@
                         <div class="checkbox">
                             @Html.CheckBoxFor(m => m.RememberMe)
                             @Html.LabelFor(m => m.RememberMe)
+                            <a href="https://github.com/login/oauth/authorize?client_id=7ac641cdf89c1dd2b493&state=xxx&redirect_uri=http://localhost:5575/Home/Auth" class="btn-default">跳转</a>
+                            <a href="https://github.com/login/oauth/access_token?client_id=7ac641cdf89c1dd2b493&client_secret=59032fbe148dbf106b1ac125774402e0ef71d68f&code=17f52a2b22d1321aea1b&redirect_uri=http://localhost:5575/Home/Auth" class="btn-default">二次访问</a>
+                            <a href="https://api.github.com/user?access_token=18395ecb6be424de5ef70807673d5a85d2882911">换取信息</a>
                         </div>
                     </div>
                 </div>

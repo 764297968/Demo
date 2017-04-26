@@ -7,6 +7,7 @@ using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Web.Security;
 using IdentityAuth.Models;
+using System.IO;
 
 namespace IdentityAuth.Controllers
 {
@@ -42,6 +43,19 @@ namespace IdentityAuth.Controllers
 
             FormsAuthentication.SetAuthCookie(loginName, true);
             return Redirect(returnUrl);
+        }
+        public ActionResult GitHubLogin()
+        {
+            string url=GitConfig.Git_AuthUrl;
+            string str = "";
+            HttpWebRequest req =(HttpWebRequest) HttpWebRequest.Create(url);
+            req.MediaType = "POST";
+            WebResponse res= req.GetResponse();
+            StreamReader reader = new StreamReader(res.GetResponseStream());
+            str = reader.ReadToEnd();
+            reader.Close();
+            res.Close();
+            return Content(str);
         }
         private ActionResult RedirectToLocal(string returnUrl)
         {

@@ -1,23 +1,2 @@
-Site_Order order = new Site_Order();
-
-int Ordercodelndex = reader.Get0rdina1("0rderCode");
-if (!reader.IsDBNu11(0rderCodeIndex))
-
-{
-
-order.0rderCode = reader.GetString(Ordercodelndex);
-
-}
-int UserIDIndex = reader.Get0rdina1("UserID")5
-
-if (!reader.IsDBNu11(UserIDIndex))
-
-{
-order.UserID = reader.GetString(UserIDIndex);
-
-}
-
-int OrderNameIndex = reader.Get0rdina1("0rderName");
-
-   
+ 
 
