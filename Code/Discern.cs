@@ -43,24 +43,40 @@ namespace Code
 
             do
             {
-                // 识别验证码(一、安装ImageMagick，二、拷备tesseract目录至应用程序下)  
-                Common.StartProcess("cmd.exe", new string[] { "cd tesseract" ,  
-  
-                                                                // 输换图片  
-                                                                String.Format(@"convert.exe -compress none -depth 8 -alpha off -scale {0}% -colorspace gray {1} {2}\captcha.tif",scale,img_path,save_dir),  
-                              
-                                                                // 识别图片  
-                                                                String.Format(@"tesseract.exe {0}\captcha.tif {0}\result",save_dir),
+                Common.StartProcess("cmd.exe", new string[] {
+                      String.Format(@"tesseract.exe {0} {1}result",img_path,save_dir),
+                                           "exit"
+                 });
+                //Common.StartProcess("cmd.exe", new string[] {
+                //     String.Format(@"convert.exe  {0} -resize {1}%   {2}captcha.jpg",img_path,scale,save_dir),
+                //      String.Format(@"tesseract.exe {0}captcha.jpg {0}result",save_dir),
 
-                                                                "exit"});
+                //                                                "exit"
+                // });
+                //识别验证码(一、安装ImageMagick，二、拷备tesseract目录至应用程序下)
+                //Common.StartProcess("cmd.exe", new string[] { "cd tesseract" ,  
+
+                //                                              // 输换图片  
+                //                                              String.Format(@"convert.exe -compress none -depth 8 -alpha off -scale {0}% -colorspace gray {1} {2}\captcha.tif",scale,img_path,save_dir),  
+
+                //                                              // 识别图片  
+                //                                              String.Format(@"tesseract.exe {0}\captcha.tif {0}\result",save_dir),
+
+                //                                              "exit"});
 
                 // 读取识别的验证码  
-                StreamReader reader = new StreamReader(String.Format(@"{0}\result.txt", save_dir));
-
+                StreamReader reader = new StreamReader(String.Format(@"{0}result.txt", save_dir));
+                if(reader.ReadLine()!=null)
                 captcha = reader.ReadLine().Trim();
 
                 reader.Close();
-
+                var  lines=File.ReadAllLines(String.Format(@"{0}result.txt", save_dir));
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    sb.Append(lines[i]+"\r\n");
+                }
+                captcha = sb.ToString();
                 // 匹配规则  
                 string pattern = "";
 
@@ -85,9 +101,13 @@ namespace Code
                     pattern = (content_length > 0) ? "^[\u4e00-\u9fa5]{" + content_length + "}$" : "^[\u4e00-\u9fa5]+$";
                 }
                 // 中英文混合  
-                else
+                else if(content_type==4)
                 {
                     pattern = (content_length > 0) ? "^[A-Za-z0-9\u4e00-\u9fa5]{" + content_length + "}$" : "^[A-Za-z0-9\u4e00-\u9fa5]+$";
+                }
+                else
+                {
+                    break;
                 }
 
 

@@ -1,0 +1,33 @@
+ImageMagick-7.0.1-4-Q16-x64-dll   图片处理插件
+
+tesseract-ocr-setup-3.02.02.exe   图片文字识别（验证码）
+
+下载网址https://sourceforge.net/projects/tesseract-ocr-alt/files/
+
+-------------使用说明
+
+--查看版本
+C:\Users\ylato>convert -v
+Version: ImageMagick 7.0.1-4 Q16 x64 2016-05-17 http://www.imagemagick.org
+Copyright: Copyright (C) 1999-2015 ImageMagick Studio LLC
+License: http://www.imagemagick.org/script/license.php
+Visual C++: 180040629
+Features: Cipher DPC Modules OpenMP
+
+
+--使用
+C:\Users\ylato>convert.exe  D:\桌面\2.png -resize 501%   d:\桌面\captcha.tif
+
+C:\Users\ylato>tesseract.exe d:\桌面\captcha.tif d:\桌面\result
+Tesseract Open Source OCR Engine v3.02 with Leptonica
+Unsupported image type.
+
+C:\Users\ylato>convert.exe  D:\桌面\1356422284_1112.jpg -resize 506%   d:\桌面\captcha.jpg
+
+C:\Users\ylato>tesseract.exe d:\桌面\captcha.jpg d:\桌面\result
+Tesseract Open Source OCR Engine v3.02 with Leptonica
+
+C:\Users\ylato>tesseract.exe d:\桌面\1356422284_1112.jpg  d:\桌面\result
+Tesseract Open Source OCR Engine v3.02 with Leptonica
+
+C:\Users\ylato>

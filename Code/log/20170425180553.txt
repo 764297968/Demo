@@ -1,0 +1,2 @@
+OCR running error   在 MODI.IDocument.OCR(MiLANGUAGES LangId, Boolean OCROrientImage, Boolean OCRStraightenImage)
+   在 Code.Form1.button2_Click(Object sender, EventArgs e) 位置 D:\Word\Demo\Code\Form1.cs:行号 51

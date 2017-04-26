@@ -28,6 +28,7 @@ namespace Code
             g.FillRectangle(Brushes.White, new Rectangle(0, 0, width, heigth));
             g.DrawString(textBox1.Text, new Font("Arial", 14, System.Drawing.FontStyle.Bold), new SolidBrush(Color.Black), 0, 0);
             pictureBox1.Image = bit;
+            bit.Save( System.Environment.CurrentDirectory + "/../../Img/test.jpg");
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
