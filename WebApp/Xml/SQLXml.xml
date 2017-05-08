@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Sql>
+  <GetAllSqlExecute>
+    SELECT TOP 500
+    ST.text AS '执行的SQL语句',
+    QS.execution_count AS '执行次数',
+    QS.total_elapsed_time AS '耗时',
+    QS.total_logical_reads AS '逻辑读取次数',
+    QS.total_logical_writes AS '逻辑写入次数',
+    QS.total_physical_reads AS '物理读取次数',
+    QS.creation_time AS '执行时间'  ,
+    QS.*
+    FROM   sys.dm_exec_query_stats QS
+    CROSS APPLY
+    sys.dm_exec_sql_text(QS.sql_handle) ST
+    ORDER BY
+    QS.creation_time DESC
+  </GetAllSqlExecute>
+</Sql>
+
+
+
