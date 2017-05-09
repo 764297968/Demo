@@ -1,7 +1,39 @@
-﻿
+﻿@using Common.Untity
 @{
     Layout = "~/Views/Shared/_BasicLayout.cshtml";
     ViewBag.Title = "Index";
+    string conn = System.Configuration.ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+    string sql = ReadXmlHelper.GetXmlValue(System.Web.HttpContext.Current.Server.MapPath("~/Xml/SQLXml.xml"), "GetAllSqlExecute");
+    var Model = SqlHelper.ExecuteDataset(conn, System.Data.CommandType.Text, sql).Tables[0];
 }
+<table>
+    <tr>
+        @for (int i = 0; i < Model.Columns.Count; i++)
+        {
+            <th>@Model.Columns[i].ColumnName</th>
+        }
+    </tr>
+    @if (Model.Rows.Count != 0)
+    {
+        for (int i = 0; i < Model.Rows.Count; i++)
+        {
+            <tr>
+                @for (int j = 0; j < Model.Columns.Count; j++)
+                {
+                    <td>@(Model.Rows[i][j])</td>
+                }
+            </tr>
 
- 
+        }
+
+    }
+    
+
+</table>
+<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        
+    });
+</script>

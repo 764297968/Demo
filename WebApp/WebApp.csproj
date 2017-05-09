@@ -212,6 +212,7 @@
     <Content Include="Content\BootStrap模板btts_9_sp\assets\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\BootStrap模板btts_9_sp\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\BootStrap模板btts_9_sp\找网站模板就上【模板之家】cssMoban.com.url" />
+    <Content Include="Xml\SQLXml.xml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -257,6 +258,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common.Untity\Common.Untity.csproj">
+      <Project>{5eb2562b-39d4-40b5-a986-a1f8b58ada7d}</Project>
+      <Name>Common.Untity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Work.Logic\Work.Logic.csproj">
       <Project>{839e9b2b-fc4f-418c-9e19-0bd12f1782f8}</Project>
       <Name>Work.Logic</Name>
